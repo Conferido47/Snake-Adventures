@@ -4,7 +4,24 @@ Version 1.0 of an original arcade adventure built with C# and Windows Forms for 
 
 Created by Justin Conferido, Najem Alayoubi, and Merj Din.
 
-## Open and run it
+## Play the game
+
+### Browser
+
+[Play Snake Adventures in your browser](https://snake-adventures-discord.pages.dev/) — no download or Discord account is needed for local browser play. Online scores and other Discord-connected features require launching the Activity through Discord.
+
+### Windows download
+
+Download [SnakeAdventures-v1.0.0-win-x64.zip](https://github.com/Conferido47/Snake-Adventures/releases/download/v1.0.0/SnakeAdventures-v1.0.0-win-x64.zip) from the [latest release](https://github.com/Conferido47/Snake-Adventures/releases/latest).
+
+1. On a 64-bit Windows 10 or Windows 11 PC, extract the entire ZIP to a folder.
+2. Open the extracted folder and run `SnakeAdventures.exe`.
+
+Keep the extracted files together. This self-contained build includes the .NET runtime, so Visual Studio and a separate .NET installation are not required. The Windows edition includes Endless Adventure and Story Mode Chapter 1; the browser edition provides Endless Adventure.
+
+## Build from source
+
+### Visual Studio
 
 1. Open the Visual Studio Installer.
 2. Make sure the **.NET desktop development** workload is installed.
@@ -12,6 +29,16 @@ Created by Justin Conferido, Najem Alayoubi, and Merj Din.
 4. In Visual Studio, press `F5` or click the green **Start** button.
 
 The project targets .NET 8 and restores NAudio automatically. All music and sound effects are synthesized from original note sequences at runtime; no external or copyrighted audio tracks are included.
+
+### Package the Windows edition
+
+With the .NET SDK installed, run from the repository root:
+
+```powershell
+dotnet publish SnakeGame/SnakeGame.csproj --configuration Release --runtime win-x64 --self-contained true --output SnakeGame/bin/publish/win-x64 -p:DebugType=None -p:DebugSymbols=false
+```
+
+Distribute the entire contents of `SnakeGame/bin/publish/win-x64/` together as a ZIP.
 
 ## Discord Activity
 
