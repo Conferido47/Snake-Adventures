@@ -1,0 +1,17 @@
+# Server-side Discord OAuth secret.
+DISCORD_CLIENT_SECRET=
+
+# Private result DMs and entitlement verification. Never expose this as a VITE_ variable.
+DISCORD_BOT_TOKEN=
+
+# Optional comma-separated Discord user IDs that receive every configured launch skin.
+DISCORD_CREATOR_USER_IDS=
+
+# Public Durable SKU IDs from Discord's Developer Portal.
+DISCORD_SKU_WRENBOUND=
+DISCORD_SKU_EMBERCOIL=
+DISCORD_SKU_PHANTOM_ROYAL=
+DISCORD_SKU_BONE_SERPENT=
+
+# Local/staging only. Keep false or unset in production.
+ALLOW_DISCORD_TEST_ENTITLEMENTS=false

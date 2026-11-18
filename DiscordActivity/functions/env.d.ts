@@ -1,0 +1,12 @@
+interface Env {
+  DB: D1Database;
+  DISCORD_CLIENT_ID: string;
+  DISCORD_CLIENT_SECRET: string;
+  DISCORD_BOT_TOKEN?: string;
+  DISCORD_CREATOR_USER_IDS?: string;
+  DISCORD_SKU_WRENBOUND?: string;
+  DISCORD_SKU_EMBERCOIL?: string;
+  DISCORD_SKU_PHANTOM_ROYAL?: string;
+  DISCORD_SKU_BONE_SERPENT?: string;
+  ALLOW_DISCORD_TEST_ENTITLEMENTS?: string;
+}

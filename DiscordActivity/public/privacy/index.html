@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b141d" />
+    <meta
+      name="description"
+      content="Privacy Policy for the Snake Adventures Discord Activity."
+    />
+    <link rel="stylesheet" href="../legal.css" />
+    <title>Privacy Policy | Snake Adventures</title>
+  </head>
+  <body>
+    <main class="legal-shell">
+      <nav class="legal-nav" aria-label="Legal pages">
+        <a class="brand" href="../">SNAKE ADVENTURES</a>
+        <div>
+          <a aria-current="page" href="./">Privacy</a>
+          <a href="../terms/">Terms</a>
+        </div>
+      </nav>
+
+      <header class="legal-header">
+        <p class="eyebrow">Player Information</p>
+        <h1>Privacy Policy</h1>
+        <p class="effective-date">Effective July 29, 2026</p>
+      </header>
+
+      <article class="legal-content">
+        <p class="summary">
+          Browser-only play stays local. When you play inside Discord and authorize the
+          <code>identify</code> permission, Snake Adventures stores your player identity and run
+          statistics to maintain personal records, a daily streak, and a lifetime leaderboard. If
+          you use the Wardrobe, we also verify Discord cosmetic entitlements and store your equipped
+          skin. You can separately opt in to receive future completed-run results in a private
+          Discord message from the Snake Adventures bot.
+        </p>
+
+        <section>
+          <h2>1. Who We Are</h2>
+          <p>
+            This Privacy Policy applies to Snake Adventures, including its website and Discord
+            Activity (the "Game"), operated by the Snake Adventures team ("we," "us," or "our").
+          </p>
+        </section>
+
+        <section>
+          <h2>2. Information We Collect</h2>
+          <p>For online scores in the Discord Activity, we process:</p>
+          <ul>
+            <li>Your Discord user ID, username, global display name, and avatar URL.</li>
+            <li>Each completed run's score, level, result, game version, and submission time.</li>
+            <li>Your personal-best score, highest level, completed-run count, current daily streak, and longest daily streak.</li>
+            <li>A random submission identifier used to prevent the same run from being recorded twice.</li>
+            <li>Discord SKU IDs and active entitlement status for Snake Adventures cosmetics.</li>
+            <li>Your equipped cosmetic ID and the time that preference was updated.</li>
+            <li>Whether you have opted in to private completed-run result messages.</li>
+          </ul>
+          <p>
+            Discord provides a short-lived access token after you authorize the Game. The token is
+            held in browser memory, used to validate your identity with Discord, and is not stored
+            in our score database. If you play on the ordinary website rather than inside Discord,
+             no online score or equipped-cosmetic record is created.
+          </p>
+        </section>
+
+        <section>
+          <h2>3. Discord Activity Information</h2>
+          <p>
+            When launched inside Discord, the Game uses Discord's Embedded App SDK to establish
+            the Activity session. It requests <code>identify</code> for online scores and cosmetic
+            ownership and <code>rpc.activities.write</code> for Rich Presence. The SDK lists
+            available SKUs, opens Discord checkout when you explicitly choose to buy, and signals
+            when an entitlement may have been created. Our backend independently verifies cosmetic
+            ownership through Discord's HTTP API before a paid skin can be equipped. We do not
+            request your Discord email address, server list, messages, contacts, or voice
+            communications.
+          </p>
+          <p>
+            While you use the Discord Activity, Rich Presence can show the main menu, current or
+            final score, level, elapsed run time, pause state, Phantom power, and Hollow King
+            encounters on your Discord profile. Rich Presence operates independently of the private
+            result-message preference and is subject to your Discord visibility settings.
+          </p>
+          <p>
+            Discord independently processes information under its
+            <a href="https://discord.com/privacy" rel="external noreferrer">Privacy Policy</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2>4. Private Results and Leaderboard</h2>
+          <p>
+            The authenticated lifetime leaderboard displays up to ten players' Discord display
+            names, personal-best scores, highest levels, and ranks inside the Activity. Your own
+            rank remains visible to you when you are outside the Top 10. The leaderboard does not
+            display Discord user IDs or run histories.
+          </p>
+          <p>
+            Private result messages are disabled by default. If you turn on <strong>DM My Completed
+            Results</strong>, the Game attempts to message future completed wins and game-overs to
+            you through the Snake Adventures bot. The embed contains your display name and avatar,
+            score and level, personal best, highest level, current and longest daily streak,
+            completed-run count, and lifetime rank. You can turn the preference off at any time.
+            Delivery can fail if your Discord settings block the message, you block the bot, the bot
+            does not share a server with you, or Discord or the network is unavailable. Manual
+            restarts and runs abandoned before game-over are not messaged.
+          </p>
+          <p>
+            The <strong>Share Leaderboard</strong> button opens Discord's own share dialog. Nothing
+            is shared unless you choose a destination and confirm. The shared message includes a
+            link back to the Activity and may include the leading score and your current rank.
+            Private messages and user-confirmed shares are retained according to your settings and
+            Discord's policies.
+          </p>
+        </section>
+
+        <section>
+          <h2>5. Information We Do Not Collect</h2>
+          <p>The Game does not:</p>
+          <ul>
+            <li>Read Discord messages, contacts, server content, or voice communications.</li>
+            <li>Request or store your full payment-card, bank-account, or billing credentials.</li>
+            <li>Use advertising trackers, third-party analytics, cookies, or browser local storage.</li>
+            <li>Sell virtual currency, consumable boosts, or gameplay advantages.</li>
+          </ul>
+          <p>
+            Current movement, audio settings, and other live gameplay state remain in temporary
+            browser memory and are cleared when the page or Activity closes.
+          </p>
+        </section>
+
+        <section>
+          <h2>6. How We Use Information</h2>
+          <p>We use the information described above to:</p>
+          <ul>
+            <li>Authenticate score submissions and associate them with the correct player.</li>
+            <li>Calculate personal records, completed runs, and consecutive UTC play dates.</li>
+            <li>Display lifetime rankings and prevent accidental duplicate or excessively rapid submissions.</li>
+            <li>Send completed-run results privately after you opt in and remember that choice.</li>
+            <li>Display available cosmetics, verify durable purchases, and remember the skin you equip.</li>
+            <li>Secure, maintain, debug, and improve the Game and score service.</li>
+            <li>Respond to support requests and comply with applicable law.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>7. Hosting and Technical Data</h2>
+          <p>
+            The Game is hosted through Cloudflare Pages, and online statistics are stored in
+            Cloudflare D1. Cloudflare may automatically process technical information such as your
+            IP address, browser or device type, request time, and security data to deliver and
+            protect the service. We do not use this information for advertising.
+          </p>
+          <p>
+            Cloudflare's processing is described in its
+            <a href="https://www.cloudflare.com/privacypolicy/" rel="external noreferrer">
+              Privacy Policy</a>.
+          </p>
+        </section>
+
+        <section>
+          <h2>8. Retention and Deletion</h2>
+          <p>
+            Player statistics, run-submission records, result-message preferences, and equipped-cosmetic preferences are
+            retained while the applicable online feature operates or until they are no longer
+            reasonably needed. You may request deletion using the contact address below. We may
+            retain limited information when required for security, fraud prevention, legal
+            compliance, or resolving disputes. Deleting our equipment row resets the selected skin
+            but does not delete or refund the purchase entitlement maintained by Discord. Deleting
+            our database record also does not automatically delete a private result message,
+            user-confirmed share, or score embed posted before this Policy took effect; those
+            messages are controlled through Discord and their destination.
+          </p>
+        </section>
+
+        <section>
+          <h2>9. Support Communications</h2>
+          <p>
+            If you contact us by email, we receive the information you choose to provide, such as
+            your email address, message, and any attachments. We use it only to respond, provide
+            support, protect the Game, or meet legal obligations. We retain support correspondence
+            only as long as reasonably necessary for those purposes.
+          </p>
+        </section>
+
+        <section>
+          <h2>10. Data Sharing</h2>
+          <p>
+            We do not sell personal information or use it for targeted advertising. We share live
+            and final play information with Discord for Rich Presence, share result information
+            when you enable private messages or explicitly use the share dialog, use Discord for
+            checkout and entitlement verification, and use Cloudflare to host the Game and store
+            statistics, message preferences, and equipment preferences. Discord and its payment
+            providers process
+            checkout and transaction information under their own policies. We may disclose information when
+            necessary to operate the Game, comply with law, protect rights and safety, investigate
+            abuse, or work with service providers acting on our behalf. Discord, Cloudflare, and
+            your email provider process information under their own terms and privacy policies.
+          </p>
+        </section>
+
+        <section>
+          <h2>11. International Processing and Security</h2>
+          <p>
+            Discord, Cloudflare, and email infrastructure may process information in countries
+            other than your own. We use reasonable measures appropriate to the limited information
+            we handle, but no internet transmission or storage system is completely secure.
+          </p>
+        </section>
+
+        <section>
+          <h2>12. Children</h2>
+          <p>
+            The Game is intended only for people old enough to use Discord under Discord's Terms
+            of Service and applicable local law. We do not knowingly collect personal information
+            from children. If you believe a child has sent us personal information, contact us so
+            we can review and delete it where appropriate.
+          </p>
+        </section>
+
+        <section>
+          <h2>13. Your Privacy Rights</h2>
+          <p>
+            Depending on where you live, you may have rights to request access, correction,
+            deletion, restriction, or a copy of personal information we hold, or to object to
+            certain processing. We will respond to valid requests concerning stored player
+            statistics, result-message preferences, equipped-cosmetic preferences, and support communications as required by
+            applicable law. Purchase and payment records controlled by Discord must be handled
+            through Discord. We may need your Discord user ID or other reasonable verification
+            before acting on a player-data request.
+          </p>
+        </section>
+
+        <section>
+          <h2>14. Changes to This Policy</h2>
+          <p>
+            We may update this Policy when the Game, its providers, or legal requirements change.
+            We will publish the revised Policy here and update its effective date. Material changes
+            will apply prospectively unless applicable law requires otherwise.
+          </p>
+        </section>
+
+        <section>
+          <h2>15. Contact Us</h2>
+          <div class="contact-card">
+            Privacy, purchase-support, and cosmetic-access questions may be sent to
+            <a href="mailto:atral.dwight@gmail.com">atral.dwight@gmail.com</a>.
+          </div>
+        </section>
+      </article>
+
+      <footer class="legal-footer">Snake Adventures | Privacy Policy</footer>
+    </main>
+  </body>
+</html>

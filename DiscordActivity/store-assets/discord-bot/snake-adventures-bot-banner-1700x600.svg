@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="600" viewBox="0 0 1700 600" role="img" aria-label="Snake Adventures bot banner" shape-rendering="geometricPrecision">
+  <title>Snake Adventures bot banner</title>
+  
+    <defs>
+    <linearGradient id="coverBackground" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07131a"/>
+      <stop offset="0.48" stop-color="#101720"/>
+      <stop offset="1" stop-color="#20132c"/>
+    </linearGradient>
+    <linearGradient id="snakeTitle" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f5fff5"/>
+      <stop offset="0.52" stop-color="#b8ef9c"/>
+      <stop offset="1" stop-color="#61b95e"/>
+    </linearGradient>
+    <linearGradient id="adventureTitle" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#58c9b2"/>
+      <stop offset="0.5" stop-color="#88efd5"/>
+      <stop offset="1" stop-color="#d4b763"/>
+    </linearGradient>
+    <radialGradient id="titleHalo">
+      <stop offset="0" stop-color="#4fba9d" stop-opacity="0.19"/>
+      <stop offset="1" stop-color="#4fba9d" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="kingHalo">
+      <stop offset="0" stop-color="#9b55d0" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#9b55d0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="wrenHalo">
+      <stop offset="0" stop-color="#2f9f85" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#2f9f85" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="coverGrid" width="56" height="56" patternUnits="userSpaceOnUse">
+      <path d="M56 0H0V56" fill="none" stroke="#9af5dc" stroke-opacity="0.055" stroke-width="2"/>
+      <rect x="4" y="4" width="5" height="5" fill="#8be8cf" fill-opacity="0.11"/>
+    </pattern>
+    <filter id="titleShadow" x="-30%" y="-40%" width="160%" height="190%">
+      <feDropShadow dx="0" dy="15" stdDeviation="12" flood-color="#000000" flood-opacity="0.8"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="7" flood-color="#76e0c7" flood-opacity="0.2"/>
+    </filter>
+    <filter id="deepShadow" x="-40%" y="-40%" width="180%" height="190%">
+      <feDropShadow dx="0" dy="18" stdDeviation="12" flood-color="#000000" flood-opacity="0.7"/>
+    </filter>
+  </defs>
+    <rect width="1700" height="600" fill="#05080d"/>
+    <rect x="18" y="18" width="1664" height="564" rx="24" fill="url(#coverBackground)"/>
+    <rect x="18" y="18" width="1664" height="564" rx="24" fill="url(#coverGrid)"/>
+    <path d="M18 490 390 18h190L208 582H18Z" fill="#6fe0c9" opacity="0.05"/>
+    <path d="M1682 112 1450 582h-230l232-564h230Z" fill="#b267e2" opacity="0.065"/>
+    <g><rect x="479.72" y="43.39" width="6" height="6" fill="#a7f8e1" opacity="0.16"/><rect x="123.78" y="416.14" width="7" height="7" fill="#a7f8e1" opacity="0.21"/><rect x="1083.13" y="397.34" width="4" height="4" fill="#a7f8e1" opacity="0.17"/><rect x="710.89" y="474.05" width="5" height="5" fill="#a7f8e1" opacity="0.27"/><rect x="1462.54" y="90.85" width="6" height="6" fill="#a7f8e1" opacity="0.16"/><rect x="1666.14" y="559.85" width="3" height="3" fill="#a7f8e1" opacity="0.14"/><rect x="1556.42" y="102.95" width="6" height="6" fill="#a7f8e1" opacity="0.14"/><rect x="881.17" y="94.8" width="3" height="3" fill="#a7f8e1" opacity="0.29"/><rect x="1670.67" y="504.57" width="2" height="2" fill="#a7f8e1" opacity="0.15"/><rect x="1520.11" y="495.36" width="5" height="5" fill="#a7f8e1" opacity="0.3"/><rect x="455.51" y="289.02" width="6" height="6" fill="#a7f8e1" opacity="0.29"/><rect x="913.84" y="167.23" width="5" height="5" fill="#a7f8e1" opacity="0.19"/><rect x="921.15" y="594.3" width="2" height="2" fill="#a7f8e1" opacity="0.13"/><rect x="0.77" y="235.74" width="5" height="5" fill="#a7f8e1" opacity="0.22"/><rect x="316.1" y="28.43" width="6" height="6" fill="#a7f8e1" opacity="0.31"/><rect x="99.23" y="202.17" width="3" height="3" fill="#a7f8e1" opacity="0.31"/><rect x="1258.63" y="392.48" width="6" height="6" fill="#a7f8e1" opacity="0.29"/><rect x="813.74" y="541.75" width="7" height="7" fill="#a7f8e1" opacity="0.13"/><rect x="637.72" y="324.64" width="4" height="4" fill="#a7f8e1" opacity="0.17"/><rect x="1125.27" y="237.19" width="5" height="5" fill="#a7f8e1" opacity="0.19"/><rect x="264.81" y="200.26" width="6" height="6" fill="#a7f8e1" opacity="0.23"/><rect x="1600.11" y="58.41" width="3" height="3" fill="#a7f8e1" opacity="0.29"/><rect x="1294.38" y="54.49" width="4" height="4" fill="#a7f8e1" opacity="0.31"/><rect x="1629.23" y="42.92" width="5" height="5" fill="#a7f8e1" opacity="0.28"/><rect x="419.97" y="284.08" width="2" height="2" fill="#a7f8e1" opacity="0.12"/><rect x="486.89" y="188.7" width="3" height="3" fill="#a7f8e1" opacity="0.2"/><rect x="1424.7" y="269.39" width="6" height="6" fill="#a7f8e1" opacity="0.13"/><rect x="1529.27" y="230.69" width="5" height="5" fill="#a7f8e1" opacity="0.22"/><rect x="702.51" y="376.02" width="2" height="2" fill="#a7f8e1" opacity="0.28"/><rect x="447.7" y="220.33" width="3" height="3" fill="#a7f8e1" opacity="0.15"/><rect x="999.77" y="83.02" width="6" height="6" fill="#a7f8e1" opacity="0.2"/><rect x="503.01" y="452.23" width="7" height="7" fill="#a7f8e1" opacity="0.18"/><rect x="1637.3" y="580.89" width="2" height="2" fill="#a7f8e1" opacity="0.15"/><rect x="503.45" y="171.03" width="3" height="3" fill="#a7f8e1" opacity="0.32"/></g>
+    <ellipse cx="590" cy="270" rx="520" ry="265" fill="url(#titleHalo)"/>
+    <ellipse cx="1440" cy="310" rx="330" ry="300" fill="url(#kingHalo)"/>
+
+    <g font-family="Segoe UI, Arial, sans-serif" text-anchor="middle">
+      <text x="585" y="94" fill="#84e7cf" font-size="20" font-weight="800" letter-spacing="8">A DARK ARCADE ADVENTURE</text>
+      <rect x="500" y="116" width="130" height="6" fill="#68dbc1"/>
+      <rect x="640" y="116" width="40" height="6" fill="#f2cb69"/>
+    </g>
+    <g text-anchor="middle" filter="url(#titleShadow)">
+      <text x="585" y="254" fill="url(#snakeTitle)" font-family="Georgia, serif" font-size="150" font-weight="900" letter-spacing="8">SNAKE</text>
+      <text x="585" y="329" fill="url(#adventureTitle)" font-family="Segoe UI, Arial, sans-serif" font-size="54" font-weight="900" letter-spacing="16">ADVENTURES</text>
+    </g>
+    <text x="585" y="374" text-anchor="middle" fill="#d5e5df" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="5">EAT // EVADE // ENCLOSE</text>
+
+    <g filter="url(#deepShadow)">
+      <g transform="translate(1065 170) scale(10.25)" shape-rendering="crispEdges">
+    <ellipse cx="10" cy="18.5" rx="8" ry="1.5" fill="#05090c" opacity="0.5"/>
+    <rect x="4" y="15" width="5" height="3" fill="#161b1f"/>
+    <rect x="12" y="15" width="5" height="3" fill="#161b1f"/>
+    <path d="M4 7h11l3 10H2Z" fill="#1a5e5b"/>
+    <path d="m9 8 6 1 1 7-7-1Z" fill="#308b7d"/>
+    <rect x="3" y="11" width="14" height="3" fill="#be3030"/>
+    <path d="m13 13 5 3-4 1Z" fill="#be3030"/>
+    <ellipse cx="10" cy="6.5" rx="6" ry="5.5" fill="#1a5e5b"/>
+    <path d="M5 3h9l3 4-6 1-2 3-3-3Z" fill="#bc843a"/>
+    <path d="M7 4h6l3 2-6 1Z" fill="#e8b85e"/>
+    <rect x="7" y="6" width="5" height="2" fill="#161b1f"/>
+    <rect x="9" y="6" width="2" height="2" fill="#ffc345"/>
+  </g>
+      <g transform="translate(1370 105) scale(5)" shape-rendering="crispEdges">
+    <ellipse cx="30" cy="55.5" rx="25" ry="3.5" fill="#050612" opacity="0.55"/>
+    <path d="M14 17h29l9 37H7Z" fill="#291947"/>
+    <path d="m28 18 15 3 4 30-18-3Z" fill="#4c3076"/>
+    <path d="m12 51 7-6 4 9 7-7 5 8 10-7 4 7H10Z" fill="#53beb5"/>
+    <rect x="15" y="20" width="30" height="26" fill="#272c3b"/>
+    <path d="m17 21 13-4 13 4-3 22H20Z" fill="#4e566b"/>
+    <path d="m30 19 10 4-2 8-8-2Z" fill="#81899d"/>
+    <rect x="16" y="38" width="29" height="5" fill="#d5a743"/>
+    <rect x="28" y="38" width="5" height="5" fill="#fada7e"/>
+    <rect x="20" y="8" width="21" height="15" fill="#272c3b"/>
+    <rect x="23" y="11" width="15" height="10" fill="#11121d"/>
+    <rect x="25" y="15" width="4" height="2" fill="#ff7269"/>
+    <rect x="33" y="15" width="4" height="2" fill="#ff7269"/>
+    <path d="M19 10V2l5 4 5-5 5 5 7-4v9Z" fill="#d5a743"/>
+    <rect x="20" y="8" width="20" height="4" fill="#fada7e"/>
+    <rect x="27" y="4" width="5" height="7" fill="#d5a743"/>
+    <rect x="10" y="26" width="10" height="18" fill="#272c3b"/>
+    <rect x="41" y="25" width="9" height="19" fill="#272c3b"/>
+    <ellipse cx="13.5" cy="44" rx="5.5" ry="5" fill="#81899d"/>
+    <ellipse cx="48.5" cy="44" rx="5.5" ry="5" fill="#81899d"/>
+    <path d="m45 37 4 2L60 8l-4-4Z" fill="#eb63a1"/>
+    <path d="m47 35 2 2 9-29-2-2Z" fill="#ffe1ed"/>
+    <rect x="42" y="36" width="12" height="4" fill="#d5a743"/>
+  </g>
+      <g><g transform="translate(318 429)" shape-rendering="crispEdges">
+      <rect width="80" height="80" rx="3.2" fill="#173f2c"/>
+      <rect x="6.4" y="6.4" width="67.2" height="67.2" fill="#66c35f"/>
+      <rect x="10.24" y="10.24" width="49.6" height="8" fill="#d7ff8d" opacity="0.88"/>
+      <rect x="18.4" y="28.8" width="11.2" height="34.4" fill="#398f77" opacity="0.82"/>
+    </g><g transform="translate(402 415)" shape-rendering="crispEdges">
+      <rect width="80" height="80" rx="3.2" fill="#173f2c"/>
+      <rect x="6.4" y="6.4" width="67.2" height="67.2" fill="#66c35f"/>
+      <rect x="10.24" y="10.24" width="49.6" height="8" fill="#d7ff8d" opacity="0.88"/>
+      <rect x="51.2" y="28.8" width="11.2" height="34.4" fill="#398f77" opacity="0.82"/>
+    </g><g transform="translate(486 430)" shape-rendering="crispEdges">
+      <rect width="80" height="80" rx="3.2" fill="#173f2c"/>
+      <rect x="6.4" y="6.4" width="67.2" height="67.2" fill="#66c35f"/>
+      <rect x="10.24" y="10.24" width="49.6" height="8" fill="#d7ff8d" opacity="0.88"/>
+      <rect x="18.4" y="28.8" width="11.2" height="34.4" fill="#398f77" opacity="0.82"/>
+    </g><g transform="translate(570 454)" shape-rendering="crispEdges">
+      <rect width="80" height="80" rx="3.2" fill="#173f2c"/>
+      <rect x="6.4" y="6.4" width="67.2" height="67.2" fill="#66c35f"/>
+      <rect x="10.24" y="10.24" width="49.6" height="8" fill="#d7ff8d" opacity="0.88"/>
+      <rect x="51.2" y="28.8" width="11.2" height="34.4" fill="#398f77" opacity="0.82"/>
+    </g><g transform="translate(654 460)" shape-rendering="crispEdges">
+      <rect width="80" height="80" rx="3.2" fill="#173f2c"/>
+      <rect x="6.4" y="6.4" width="67.2" height="67.2" fill="#66c35f"/>
+      <rect x="10.24" y="10.24" width="49.6" height="8" fill="#d7ff8d" opacity="0.88"/>
+      <rect x="18.4" y="28.8" width="11.2" height="34.4" fill="#398f77" opacity="0.82"/>
+    </g><g transform="translate(738 440)" shape-rendering="crispEdges">
+      <rect width="80" height="80" rx="3.2" fill="#173f2c"/>
+      <rect x="6.4" y="6.4" width="67.2" height="67.2" fill="#66c35f"/>
+      <rect x="10.24" y="10.24" width="49.6" height="8" fill="#d7ff8d" opacity="0.88"/>
+      <rect x="51.2" y="28.8" width="11.2" height="34.4" fill="#398f77" opacity="0.82"/>
+    </g><g transform="translate(822 412)" shape-rendering="crispEdges">
+      <rect width="80" height="80" rx="3.2" fill="#173f2c"/>
+      <rect x="6.4" y="6.4" width="67.2" height="67.2" fill="#66c35f"/>
+      <rect x="10.24" y="10.24" width="49.6" height="8" fill="#d7ff8d" opacity="0.88"/>
+      <rect x="18.4" y="28.8" width="11.2" height="34.4" fill="#398f77" opacity="0.82"/>
+    </g><g transform="translate(906 398)" shape-rendering="crispEdges">
+      <rect width="80" height="80" rx="3.2" fill="#173f2c"/>
+      <rect x="6.4" y="6.4" width="67.2" height="67.2" fill="#66c35f"/>
+      <rect x="10.24" y="10.24" width="49.6" height="8" fill="#d7ff8d" opacity="0.88"/>
+      <rect x="51.2" y="28.8" width="11.2" height="34.4" fill="#398f77" opacity="0.82"/>
+    </g><g transform="translate(990 411)" shape-rendering="crispEdges">
+      <rect width="80" height="80" rx="3.2" fill="#173f2c"/>
+      <rect x="6.4" y="6.4" width="67.2" height="67.2" fill="#66c35f"/>
+      <rect x="10.24" y="10.24" width="49.6" height="8" fill="#d7ff8d" opacity="0.88"/>
+      <rect x="18.4" y="28.8" width="11.2" height="34.4" fill="#398f77" opacity="0.82"/>
+    </g><g transform="translate(1074 438)" shape-rendering="crispEdges">
+      <rect width="80" height="80" rx="3.2" fill="#173f2c"/>
+      <rect x="6.4" y="6.4" width="67.2" height="67.2" fill="#66c35f"/>
+      <rect x="10.24" y="10.24" width="49.6" height="8" fill="#d7ff8d" opacity="0.88"/>
+      <rect x="51.2" y="28.8" width="11.2" height="34.4" fill="#398f77" opacity="0.82"/>
+    </g><g transform="translate(1158 450)" shape-rendering="crispEdges">
+      <rect width="80" height="80" rx="3.2" fill="#173f2c"/>
+      <rect x="6.4" y="6.4" width="67.2" height="67.2" fill="#66c35f"/>
+      <rect x="10.24" y="10.24" width="49.6" height="8" fill="#d7ff8d" opacity="0.88"/>
+      <rect x="18.4" y="28.8" width="11.2" height="34.4" fill="#398f77" opacity="0.82"/>
+    </g><g transform="translate(1242 435)" shape-rendering="crispEdges">
+      <rect width="80" height="80" rx="3.2" fill="#173f2c"/>
+      <rect x="6.4" y="6.4" width="67.2" height="67.2" fill="#aceb5d"/>
+      <rect x="10.24" y="10.24" width="49.6" height="8" fill="#d7ff8d" opacity="0.88"/>
+      <rect x="53.6" y="20" width="10.4" height="10.4" fill="#0c2117"/><rect x="55.68" y="21.04" width="2.91" height="2.91" fill="#ffffff"/><rect x="53.6" y="49.6" width="10.4" height="10.4" fill="#0c2117"/><rect x="55.68" y="50.64" width="2.91" height="2.91" fill="#ffffff"/><path d="M80 42.4h14.4l8 -8m-8 8 8 8" fill="none" stroke="#e887a5" stroke-width="4"/>
+    </g></g>
+    </g>
+    <g transform="translate(923 335) scale(3.3)" shape-rendering="crispEdges">
+    <ellipse cx="10" cy="12" rx="7" ry="7" fill="#ed4e43"/>
+    <ellipse cx="8" cy="9" rx="2" ry="2" fill="#ffc6ae"/>
+    <rect x="10" y="2" width="2" height="5" fill="#72502b"/>
+    <path d="M11 4q4-4 7-1-3 4-7 3Z" fill="#68b758"/>
+  </g>
+    <g transform="translate(1240 330) scale(4.1)" shape-rendering="crispEdges">
+    <ellipse cx="10" cy="10" rx="10" ry="10" fill="#bc78ff" opacity="0.38"/>
+    <ellipse cx="10.5" cy="11.5" rx="6.5" ry="6.5" fill="#6f37aa"/>
+    <ellipse cx="10.5" cy="11.5" rx="4.5" ry="4.5" fill="#b167e2"/>
+    <path d="m10 6-3-4 4 2 4-3-1 5Z" fill="#ffd34c"/>
+    <ellipse cx="8.5" cy="9.5" rx="1.5" ry="1.5" fill="#faf4ff"/>
+  </g>
+    <g transform="translate(1320 235) rotate(-18) scale(0.8)">
+    <path d="M8 70A52 52 0 0 1 82 10 47 47 0 0 0 34 91 52 52 0 0 1 8 70Z" fill="#bd63dd" opacity="0.42"/>
+    <path d="M16 67A44 44 0 0 1 78 17 39 39 0 0 0 38 84 44 44 0 0 1 16 67Z" fill="#f8e9ff"/>
+    <path d="M24 64A36 36 0 0 1 70 23 34 34 0 0 0 42 77 36 36 0 0 1 24 64Z" fill="#c36be0"/>
+  </g>
+
+    <rect x="18" y="18" width="1664" height="564" rx="24" fill="none" stroke="#73dfc3" stroke-opacity="0.4" stroke-width="3"/>
+    <rect x="30" y="30" width="1640" height="540" rx="17" fill="none" stroke="#ffffff" stroke-opacity="0.075" stroke-width="2"/>
+    <path d="M56 125V56h92M1644 475v69h-92" fill="none" stroke="#73dfc3" stroke-opacity="0.78" stroke-width="6"/>
+    <path d="M56 475v69h92M1644 125V56h-92" fill="none" stroke="#e7d181" stroke-opacity="0.4" stroke-width="3"/>
+  
+</svg>

@@ -1,0 +1,36 @@
+{
+  "name": "snake-adventures-discord-activity",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev:discord": "vite --mode discord",
+    "build": "tsc --noEmit && vite build",
+    "build:discord": "node scripts/require-discord-client-id.mjs && npm run build",
+    "build:functions": "wrangler pages functions build --outdir dist-functions",
+    "check:functions": "tsc --project functions/tsconfig.json",
+    "art:activity": "node scripts/render-activity-assets.mjs",
+    "art:bot": "node scripts/render-activity-assets.mjs",
+    "art:presence": "node scripts/render-activity-assets.mjs",
+    "art:instagram": "node scripts/render-instagram-posts.mjs",
+    "art:skus": "node scripts/render-sku-banners.mjs",
+    "preview": "vite preview",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@discord/embedded-app-sdk": "2.5.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20260728.1",
+    "@types/node": "26.1.2",
+    "ffmpeg-static": "5.2.0",
+    "typescript": "7.0.2",
+    "vite": "8.1.5",
+    "vitest": "4.1.10",
+    "wrangler": "4.114.0"
+  }
+}

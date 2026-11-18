@@ -1,0 +1,46 @@
+# Visual Studio and .NET build output / per-user settings
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+*.sln.docstates
+
+# Local environment files and server-side development secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+
+# Installed dependencies, browser builds, and local Cloudflare state
+DiscordActivity/node_modules/
+DiscordActivity/dist/
+DiscordActivity/dist-functions/
+DiscordActivity/.wrangler/
+DiscordActivity/.dev.vars
+DiscordActivity/.dev.vars.*
+!DiscordActivity/.dev.vars.example
+DiscordActivity/.env
+DiscordActivity/.env.*
+!DiscordActivity/.env.example
+# Native ROM build output (including emulator saves)
+GameBoyRom/build/
+
+# Local logs, credentials, database copies, and OS metadata
+*.log
+*.pem
+*.key
+*.pfx
+*.p12
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+*.db
+*.db-wal
+*.db-shm
+.DS_Store
+Thumbs.db
+Desktop.ini

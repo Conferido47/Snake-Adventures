@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b141d" />
+    <meta
+      name="description"
+      content="Snake Adventures, a browser game and Discord Activity."
+    />
+    <title>Snake Adventures</title>
+  </head>
+  <body>
+    <main class="activity-shell">
+      <header class="masthead" aria-label="Snake Adventures">
+        <span class="masthead-mark" aria-hidden="true"></span>
+        <div>
+          <strong>SNAKE ADVENTURES</strong>
+          <span id="runtime-label">BROWSER EDITION</span>
+        </div>
+        <button id="leaderboard-button" class="leaderboard-launch" type="button">TOP 10</button>
+        <span class="connection-light" id="connection-light" aria-hidden="true"></span>
+      </header>
+
+      <section class="game-frame" aria-label="Snake Adventures game">
+        <canvas
+          id="game-canvas"
+          width="600"
+          height="492"
+          tabindex="0"
+          role="application"
+          aria-label="Snake Adventures. Use arrow keys or WASD to move."
+        ></canvas>
+        <div id="game-message" class="game-message" role="status" aria-live="polite"></div>
+      </section>
+
+      <section id="mobile-info" class="mobile-info" hidden>
+        <strong id="mobile-info-title"></strong>
+        <span id="mobile-info-body"></span>
+      </section>
+
+      <nav class="touch-controls" aria-label="Game controls">
+        <svg class="control-symbols" aria-hidden="true">
+          <symbol id="snake-direction-head" viewBox="-4 -7 72 76">
+            <path
+              d="M24 63V55C18 52 14 47 12 40L9 27C11 17 17 10 26 7L32 3L38 7C47 10 53 17 55 27L52 40C50 47 46 52 40 55V63Z"
+              fill="#55a968"
+              stroke="#102a25"
+              stroke-width="3"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M32 4V-1M32-1L27-5M32-1L37-5"
+              fill="none"
+              stroke="#e58aa5"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M18 18C21 11 26 8 32 8C38 8 43 11 46 18L49 38C46 47 40 51 32 51C24 51 18 47 15 38Z"
+              fill="#76d483"
+            />
+            <path d="M27 10L32 7L37 10L32 14Z" fill="#a3e39a" opacity=".8" />
+            <path d="M25 17L32 14L39 17L32 21Z" fill="#58b76d" opacity=".75" />
+            <ellipse cx="22" cy="27" rx="7" ry="8" fill="#f2e9ac" stroke="#17352b" stroke-width="2" />
+            <ellipse cx="42" cy="27" rx="7" ry="8" fill="#f2e9ac" stroke="#17352b" stroke-width="2" />
+            <circle cx="23" cy="24" r="3" fill="#07130f" />
+            <circle cx="41" cy="24" r="3" fill="#07130f" />
+            <circle cx="24" cy="23" r="1" fill="#fff" />
+            <circle cx="42" cy="23" r="1" fill="#fff" />
+            <path d="M25 41Q32 46 39 41" fill="none" stroke="#17352b" stroke-width="3" stroke-linecap="round" />
+          </symbol>
+        </svg>
+        <div class="direction-pad">
+          <button class="control up" type="button" data-action="up" aria-label="Move up">
+            <svg class="snake-head-icon" viewBox="-4 -7 72 76" aria-hidden="true">
+              <use href="#snake-direction-head" x="-4" y="-7" width="72" height="76"></use>
+            </svg>
+          </button>
+          <button class="control left" type="button" data-action="left" aria-label="Move left">
+            <svg class="snake-head-icon" viewBox="-4 -7 72 76" aria-hidden="true">
+              <use href="#snake-direction-head" x="-4" y="-7" width="72" height="76"></use>
+            </svg>
+          </button>
+          <span class="dpad-center" aria-hidden="true"></span>
+          <button class="control right" type="button" data-action="right" aria-label="Move right">
+            <svg class="snake-head-icon" viewBox="-4 -7 72 76" aria-hidden="true">
+              <use href="#snake-direction-head" x="-4" y="-7" width="72" height="76"></use>
+            </svg>
+          </button>
+          <button class="control down" type="button" data-action="down" aria-label="Move down">
+            <svg class="snake-head-icon" viewBox="-4 -7 72 76" aria-hidden="true">
+              <use href="#snake-direction-head" x="-4" y="-7" width="72" height="76"></use>
+            </svg>
+          </button>
+        </div>
+        <div class="action-pad">
+          <button class="action-button" type="button" data-action="pause" aria-label="Select or pause">
+            <span class="opening-action">SELECT</span><span class="game-action">PAUSE</span>
+          </button>
+          <button class="action-button danger" type="button" data-action="restart" aria-label="Back or restart">
+            <span class="opening-action">BACK</span><span class="game-action">RESTART</span>
+          </button>
+        </div>
+      </nav>
+
+      <p class="desktop-hint">ARROWS / WASD TO MOVE <span>&bull;</span> P TO PAUSE <span>&bull;</span> R TO RESTART</p>
+      <div id="accessibility-status" class="sr-only" role="status" aria-live="polite"></div>
+    </main>
+
+    <dialog id="wardrobe-dialog" class="wardrobe-dialog" aria-labelledby="wardrobe-title">
+      <div class="wardrobe-shell">
+        <header class="wardrobe-header">
+          <div>
+            <span class="wardrobe-eyebrow">LEGENDS OF THE HOLLOW</span>
+            <h1 id="wardrobe-title">WARDROBE</h1>
+          </div>
+          <button class="wardrobe-close" type="button" data-wardrobe-close aria-label="Close Wardrobe">CLOSE</button>
+        </header>
+
+        <div class="wardrobe-layout">
+          <section class="wardrobe-preview-panel" aria-label="Selected skin preview">
+            <div class="wardrobe-preview-frame">
+              <canvas
+                class="wardrobe-preview"
+                data-wardrobe-preview
+                width="320"
+                height="136"
+                aria-label="Snake skin preview"
+              ></canvas>
+            </div>
+            <div class="wardrobe-selected-heading">
+              <h2 data-wardrobe-name>Classic</h2>
+              <span data-wardrobe-badge>OWNED</span>
+            </div>
+            <p data-wardrobe-description>The original bright-green Snake Adventures look.</p>
+            <button class="wardrobe-primary" type="button" data-wardrobe-action>EQUIPPED</button>
+            <p class="wardrobe-promise">Permanent cosmetic. No gameplay advantage.</p>
+          </section>
+
+          <section class="wardrobe-inventory" aria-label="Snake skins">
+            <div class="skin-grid" data-wardrobe-grid></div>
+          </section>
+        </div>
+
+        <footer class="wardrobe-footer">
+          <button type="button" class="wardrobe-refresh" data-wardrobe-refresh>REFRESH PURCHASES</button>
+          <p data-wardrobe-status role="status" aria-live="polite"></p>
+          <nav aria-label="Purchase information">
+            <a href="/terms/" target="_blank" rel="noreferrer">Purchase Terms</a>
+            <a href="/privacy/" target="_blank" rel="noreferrer">Privacy</a>
+            <a href="mailto:atral.dwight@gmail.com">Support</a>
+          </nav>
+        </footer>
+      </div>
+    </dialog>
+
+    <dialog id="player-hub-dialog" class="player-hub-dialog" aria-labelledby="player-hub-title">
+      <div class="player-hub-shell">
+        <header class="player-hub-header">
+          <div>
+            <span>THE HOLLOW ARCHIVES</span>
+            <h1 id="player-hub-title">LIFETIME TOP 10</h1>
+          </div>
+          <button type="button" data-player-hub-close aria-label="Close leaderboard">CLOSE</button>
+        </header>
+
+        <section class="player-standing" aria-label="Your lifetime standing">
+          <div>
+            <span>YOUR RANK</span>
+            <strong data-player-rank>--</strong>
+          </div>
+          <p data-player-best>COMPLETE A RUN TO ENTER</p>
+        </section>
+
+        <ol class="leaderboard-list" data-leaderboard-list aria-label="Lifetime leaderboard"></ol>
+
+        <section class="result-dm-setting" aria-labelledby="result-dm-title">
+          <label>
+            <input
+              type="checkbox"
+              role="switch"
+              data-result-dm-toggle
+              aria-describedby="result-dm-description"
+            />
+            <span class="result-dm-switch" aria-hidden="true"></span>
+            <strong id="result-dm-title">DM MY COMPLETED RESULTS</strong>
+          </label>
+          <p id="result-dm-description">
+            Opt in once to receive future score, level, streak, and rank results privately.
+            Delivery requires open DMs and a server shared with the Snake Adventures bot.
+          </p>
+        </section>
+
+        <footer class="player-hub-footer">
+          <button type="button" data-leaderboard-refresh>REFRESH</button>
+          <p data-leaderboard-status role="status" aria-live="polite"></p>
+          <button type="button" class="leaderboard-share" data-leaderboard-share>SHARE LEADERBOARD</button>
+        </footer>
+      </div>
+    </dialog>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

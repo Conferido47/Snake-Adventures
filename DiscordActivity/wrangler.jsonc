@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "snake-adventures-discord",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-07-28",
+  "vars": {
+    "DISCORD_CLIENT_ID": "1531515418492014836",
+    "DISCORD_SKU_WRENBOUND": "1531831350024343733",
+    "DISCORD_SKU_EMBERCOIL": "1531831805140013237",
+    "DISCORD_SKU_PHANTOM_ROYAL": "1531832083822153789",
+    "DISCORD_SKU_BONE_SERPENT": "1531832319768395927"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "snake-adventures-discord-scores",
+      "database_id": "1af09ef7-60e9-4e1c-8947-ce401c394bd4",
+      "preview_database_id": "DB",
+      "migrations_dir": "migrations"
+    }
+  ]
+}
