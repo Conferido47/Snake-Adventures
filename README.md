@@ -13,10 +13,6 @@ Created by Justin Conferido, Najem Alayoubi, and Merj Din.
 
 The project targets .NET 8 and restores NAudio automatically. All music and sound effects are synthesized from original note sequences at runtime; no external or copyrighted audio tracks are included.
 
-## Game Boy Color ROM
-
-A native Endless Adventure homebrew port is available in `GameBoyRom/`. It includes all seven snake skins, Wren, Phantom Fruit, extra lives, recurring Hollow King fights, chiptune arrangements, and battery-backed local saves. Run `GameBoyRom/build.ps1` to build `GameBoyRom/build/SnakeAdventures.gb` with the pinned GBDK toolchain.
-
 ## Discord Activity
 
 A browser port that can run inside Discord is available in `DiscordActivity/`. It preserves the original menus, synthesized music, Wren, Phantom Fruit, extra-life system, Hollow King encounters, progression, and sword crescents. Authenticated Discord play also provides private opt-in result DMs and a shareable lifetime leaderboard. The Windows edition contains the first Story Mode chapter; the Discord edition currently provides the original endless Adventure.
