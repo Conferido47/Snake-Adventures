@@ -45,7 +45,7 @@ describe('createRunReporter', () => {
       score: 750,
       level: 3,
       won: false,
-      gameVersion: '1.0.0',
+      gameVersion: '1.0.1',
     });
   });
 

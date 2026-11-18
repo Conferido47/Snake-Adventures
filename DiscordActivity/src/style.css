@@ -1260,3 +1260,22 @@ body[data-game-mode="opening"][data-screen-page="menu"] [data-action="restart"] 
     transition-duration: 0.01ms !important;
   }
 }
+/* The player prompt opens before game keyboard handlers are attached. */
+.player-name-dialog {
+  width: min(440px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow: auto;
+  border: 1px solid #7ee0be;
+  border-radius: 16px;
+  padding: 24px;
+  color: #e8f6ef;
+  background: #0b141d;
+}
+.player-name-dialog::backdrop { background: rgb(0 0 0 / 75%); }
+.player-name-dialog form { display: grid; gap: 12px; }
+.player-name-dialog h2, .player-name-dialog p { margin: 0; }
+.player-name-dialog input { width: 100%; padding: 12px; font: inherit; box-sizing: border-box; }
+.player-name-dialog a { color: #7ee0be; }
+.player-name-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.player-name-actions button { padding: 12px; font: inherit; cursor: pointer; }
+.player-name-error { color: #ffb8b8; }

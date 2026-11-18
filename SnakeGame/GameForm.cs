@@ -131,8 +131,11 @@ public sealed class GameForm : Form
         StartingBossSlashIntervalMilliseconds -
         Math.Max(0, _level - SlashUnlockLevel) * BossSlashIntervalStepMilliseconds);
 
-    public GameForm()
+    private readonly PlayerReporter? _playerReporter;
+
+    internal GameForm(PlayerProfile? playerProfile = null)
     {
+        _playerReporter = playerProfile is null ? null : new PlayerReporter(playerProfile);
         _applicationIcon = LoadApplicationIcon();
         if (_applicationIcon is not null)
         {
@@ -159,6 +162,14 @@ public sealed class GameForm : Form
 
         _storyProgress = _storyProgressStore.Load();
         ShowOpeningScreen();
+        Shown += async (_, _) =>
+        {
+            if (_playerReporter is not null)
+            {
+                bool saved = await _playerReporter.ReportVisitAsync();
+                if (!IsDisposed) Text = $"Snake Adventures — {playerProfile!.DisplayName}" + (saved ? "" : " (reporting offline)");
+            }
+        };
     }
 
     private static Icon? LoadApplicationIcon()
@@ -1289,10 +1300,20 @@ public sealed class GameForm : Form
         _gameOver = true;
         _won = won;
         _gameOverTitle = title;
+        if (_playerReporter is not null)
+        {
+            _ = ReportCompletedRunAsync(_score, _level, won);
+        }
         _resultSelectedButton = 0;
         _resultHoveredButton = -1;
         Cursor = Cursors.Default;
         Invalidate();
+    }
+
+    private async Task ReportCompletedRunAsync(int score, int level, bool won)
+    {
+        bool saved = await _playerReporter!.ReportRunAsync(score, level, won);
+        if (!saved && !IsDisposed && !Text.Contains("reporting offline")) Text += " (reporting offline)";
     }
 
     private void EndBoardClear()

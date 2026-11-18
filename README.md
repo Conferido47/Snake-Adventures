@@ -1,6 +1,6 @@
 # Snake Adventures
 
-Version 1.0 of an original arcade adventure built with C# and Windows Forms for Visual Studio Community.
+An original arcade adventure built with C# and Windows Forms for Visual Studio Community.
 
 Created by Justin Conferido, Najem Alayoubi, and Merj Din.
 
@@ -12,12 +12,20 @@ Created by Justin Conferido, Najem Alayoubi, and Merj Din.
 
 ### Windows download
 
-Download [SnakeAdventures-v1.0.0-win-x64.zip](https://github.com/Conferido47/Snake-Adventures/releases/download/v1.0.0/SnakeAdventures-v1.0.0-win-x64.zip) from the [latest release](https://github.com/Conferido47/Snake-Adventures/releases/latest).
+Download [SnakeAdventures-v1.0.1-win-x64.zip](https://github.com/Conferido47/Snake-Adventures/releases/download/v1.0.1/SnakeAdventures-v1.0.1-win-x64.zip) from the [latest release](https://github.com/Conferido47/Snake-Adventures/releases/latest).
 
 1. On a 64-bit Windows 10 or Windows 11 PC, extract the entire ZIP to a folder.
 2. Open the extracted folder and run `SnakeAdventures.exe`.
 
 Keep the extracted files together. This self-contained build includes the .NET runtime, so Visual Studio and a separate .NET installation are not required. The Windows edition includes Endless Adventure and Story Mode Chapter 1; the browser edition provides Endless Adventure.
+
+### Player names (version 1.0.1 and later)
+
+The browser and updated Windows edition ask **Who's playing?** at launch. Enter a display name and choose **Play and save results** to record your platform, visits, and completed-run scores in the creators' private player database. The name is remembered on that browser/PC and can be edited at the next launch. It is a chosen name, not a verified identity; matching names on different devices remain separate players.
+
+Choose **Play offline** for local play without reporting. Network failures never block gameplay, and records that could not be uploaded are not queued after closing the game. Previously downloaded version 1.0.0 does not report players; it must be replaced with the updated Windows build.
+
+The updated source requires database migration `0004_named_players.sql` and deployment of the updated Pages Functions before named reporting becomes available online.
 
 ## Build from source
 

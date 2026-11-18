@@ -8,6 +8,7 @@ import { createRunReporter, type RunReporter } from './run-reporter';
 import { DiscordPresence } from './presence';
 import { PlayerHub, PlayerHubService } from './player-hub';
 import { Wardrobe } from './wardrobe';
+import { chooseBrowserPlayer } from './named-player';
 
 async function main(): Promise<void> {
   const canvas = requireCanvas('game-canvas');
@@ -34,6 +35,7 @@ async function main(): Promise<void> {
   }
 
   const audio = new WebAudioManager();
+  const namedPlayer = runtime.kind === 'browser' ? await chooseBrowserPlayer() : null;
   const reporter: RunReporter | null = runtime.session
     ? createRunReporter(runtime.session.accessToken)
     : null;
@@ -52,6 +54,11 @@ async function main(): Promise<void> {
   let wardrobe: Wardrobe;
   let playerHub: PlayerHub;
   const submitCompletedRun = (summary: RunSummary): void => {
+    if (namedPlayer) {
+      void namedPlayer.report(summary)
+        .then(() => app.showStatus(`Score ${summary.score} saved for the game creators.`))
+        .catch(() => app.showStatus('Your score could not be saved online. You can keep playing.'));
+    }
     if (!reporter) {
       return;
     }
@@ -145,6 +152,9 @@ async function main(): Promise<void> {
     void audio.dispose().catch(() => undefined);
   });
   app.start();
+  if (namedPlayer) {
+    void namedPlayer.report().catch(() => app.showStatus('Player reporting is offline. You can keep playing.'));
+  }
   if (runtime.sdk?.customId === 'leaderboard') {
     playerHub.open();
   }

@@ -39,7 +39,7 @@ export function createRunReporter(
           score: summary.score,
           level: summary.level,
           won: summary.won,
-          gameVersion: '1.0.0',
+          gameVersion: '1.0.1',
         }),
       });
 

@@ -4,7 +4,7 @@ This directory contains the browser and Discord Activity edition of Snake Advent
 
 The Activity uses Discord's Embedded App SDK only when Discord launch parameters are present, and it also runs as a normal website.
 
-Discord play requests the `identify` scope for online scores and account-owned cosmetics. Completed runs are stored in Cloudflare D1 and update each player's personal best, UTC daily streak, and lifetime rank. Players can opt in once to receive future result embeds privately from the bot, view the global lifetime Top 10, and explicitly share the leaderboard through Discord's share dialog. Browser-only play remains local, does not submit scores, and can preview but not purchase paid skins.
+Discord play requests the `identify` scope for online scores and account-owned cosmetics. Completed runs are stored in Cloudflare D1 and update each player's personal best, UTC daily streak, and lifetime rank. Players can opt in once to receive future result embeds privately from the bot, view the global lifetime Top 10, and explicitly share the leaderboard through Discord's share dialog. Browser-only play can use a chosen display name to report visits and completed scores to the creators' private dashboard, or choose Play offline without reporting. It can preview but not purchase paid skins.
 
 ## Requirements
 
@@ -187,6 +187,18 @@ npx wrangler pages deploy dist --project-name snake-adventures-discord --branch 
 Test one-time purchases using Discord **Application Test Mode**, not test entitlements. Purchases are initiated by the Embedded App SDK, but ownership is granted only after the backend verifies the resulting Discord entitlement.
 
 ## View the live player database
+
+### Named browser and Windows players
+
+Apply migration `0004_named_players.sql` before deploying the named-player update. `POST /api/play` records installation-scoped chosen names, platform, visits, and completed scores. A random 256-bit device token is kept locally and only its SHA-256 hash is stored as the server identity. No database credentials are included in either client. The endpoint returns no player lists or private records.
+
+The dashboard uses `all_player_stats` and `all_run_submissions` to show all three platforms. Each row labels its source and whether its name is self-reported; search `browser`, `windows`, or `discord` to select a platform. Visits count successful named launches rather than downloads or live concurrent players. A named player appears even before completing a run. Same-name devices are not merged, and named scores do not enter the authenticated Discord leaderboard. Duplicate retries do not increase visit/run counts.
+
+Browser profiles use local storage. Windows profiles use `%LocalAppData%\SnakeAdventures\player-profile.json`. Players can change their name at the next launch or choose Play offline; offline play is not submitted. Failed requests retry once during the session but are not queued across launches. Version 1.0.0 Windows downloads must be updated to use reporting.
+
+For local end-to-end development, run `npx wrangler d1 migrations apply snake-adventures-discord-scores --local`, build the site, and serve it with `npx wrangler pages dev dist`. Vite alone does not run Pages Functions.
+
+### Open the dashboard
 
 On Windows, double-click `Open Live Player Database.cmd` in the repository's main folder. It opens a private local dashboard in the browser with live player statistics, search, and the complete paginated run history. The launcher starts one hidden local service at `http://127.0.0.1:41739`; opening the file again safely reuses it, so no terminal window needs to remain open.
 

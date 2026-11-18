@@ -6,6 +6,8 @@ internal static class Program
     private static void Main()
     {
         ApplicationConfiguration.Initialize();
-        Application.Run(new GameForm());
+        using PlayerNameDialog playerDialog = new();
+        PlayerProfile? profile = playerDialog.ShowDialog() == DialogResult.OK ? playerDialog.Profile : null;
+        Application.Run(new GameForm(profile));
     }
 }

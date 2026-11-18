@@ -132,15 +132,17 @@ async function fetchDashboardData(searchParameters) {
 
   const sql = `
     SELECT
-      (SELECT COUNT(*) FROM player_stats) AS totalPlayers,
-      (SELECT COUNT(*) FROM run_submissions) AS totalRuns,
-      (SELECT COALESCE(MAX(high_score), 0) FROM player_stats) AS bestScore,
-      (SELECT COALESCE(SUM(won), 0) FROM run_submissions) AS totalWins,
-      (SELECT MAX(created_at) FROM run_submissions) AS latestRunAt;
+      (SELECT COUNT(*) FROM all_player_stats) AS totalPlayers,
+      (SELECT COUNT(*) FROM all_run_submissions) AS totalRuns,
+      (SELECT COALESCE(MAX(high_score), 0) FROM all_player_stats) AS bestScore,
+      (SELECT COALESCE(SUM(won), 0) FROM all_run_submissions) AS totalWins,
+      (SELECT MAX(created_at) FROM all_run_submissions) AS latestRunAt;
 
     SELECT
       discord_user_id AS discordUserId,
       display_name AS displayName,
+      platform,
+      total_sessions AS totalSessions,
       high_score AS highScore,
       highest_level AS highestLevel,
       current_streak AS currentStreak,
@@ -149,26 +151,27 @@ async function fetchDashboardData(searchParameters) {
       total_runs AS totalRuns,
       created_at AS createdAt,
       updated_at AS updatedAt
-    FROM player_stats
+    FROM all_player_stats
     ${playerWhere}
     ORDER BY high_score DESC, highest_level DESC, updated_at DESC;
 
     SELECT COUNT(*) AS filteredRuns
-    FROM run_submissions AS r
-    LEFT JOIN player_stats AS p ON p.discord_user_id = r.discord_user_id
+    FROM all_run_submissions AS r
+    LEFT JOIN all_player_stats AS p ON p.discord_user_id = r.discord_user_id
     ${runWhere};
 
     SELECT
       r.submission_id AS submissionId,
       r.discord_user_id AS discordUserId,
       COALESCE(p.display_name, 'Unknown player') AS displayName,
+      p.platform,
       r.score,
       r.level,
       r.won,
       r.game_version AS gameVersion,
       r.created_at AS createdAt
-    FROM run_submissions AS r
-    LEFT JOIN player_stats AS p ON p.discord_user_id = r.discord_user_id
+    FROM all_run_submissions AS r
+    LEFT JOIN all_player_stats AS p ON p.discord_user_id = r.discord_user_id
     ${runWhere}
     ORDER BY r.created_at DESC
     LIMIT ${pageSize} OFFSET ${offset};
@@ -225,7 +228,8 @@ function buildPlayerWhere(search) {
   }
   const pattern = sqlLikePattern(search);
   return `WHERE lower(display_name) LIKE ${pattern} ESCAPE '\\'
-    OR discord_user_id LIKE ${pattern} ESCAPE '\\'`;
+    OR discord_user_id LIKE ${pattern} ESCAPE '\\'
+    OR platform LIKE ${pattern} ESCAPE '\\'`;
 }
 
 function buildRunWhere(search) {
@@ -235,7 +239,8 @@ function buildRunWhere(search) {
   const pattern = sqlLikePattern(search);
   return `WHERE lower(COALESCE(p.display_name, '')) LIKE ${pattern} ESCAPE '\\'
     OR r.discord_user_id LIKE ${pattern} ESCAPE '\\'
-    OR lower(r.submission_id) LIKE ${pattern} ESCAPE '\\'`;
+    OR lower(r.submission_id) LIKE ${pattern} ESCAPE '\\'
+    OR p.platform LIKE ${pattern} ESCAPE '\\'`;
 }
 
 function sqlLikePattern(search) {
@@ -642,7 +647,7 @@ const dashboardHtml = String.raw`<!doctype html>
 
     <section class="toolbar" aria-label="Database controls">
       <label class="search-field">
-        <span>Search player name, Discord ID, or submission ID</span>
+        <span>Search name, player ID, submission ID, or platform (browser/windows/discord)</span>
         <input id="search" type="search" placeholder="Search the live database..." autocomplete="off">
       </label>
       <label>
@@ -677,7 +682,7 @@ const dashboardHtml = String.raw`<!doctype html>
       <header class="panel-head">
         <div>
           <h2>Players</h2>
-          <p>Career records and current streaks</p>
+          <p>Discord accounts and named browser/Windows players. Display names are self-reported.</p>
         </div>
         <span class="count" id="player-count">0 RECORDS</span>
       </header>
@@ -693,7 +698,7 @@ const dashboardHtml = String.raw`<!doctype html>
       <header class="panel-head">
         <div>
           <h2>Run Log</h2>
-          <p>Every authenticated run submission, newest first</p>
+          <p>Completed runs across Discord, browser, and Windows, newest first</p>
         </div>
         <span class="count" id="run-count">0 RUNS</span>
       </header>
@@ -838,11 +843,11 @@ const dashboardHtml = String.raw`<!doctype html>
       for (const player of players) {
         const row = document.createElement('tr');
         row.append(
-          playerCell(player.displayName, player.discordUserId),
+          playerCell(player.displayName, player.discordUserId, player.platform, player.totalSessions),
           tableCell(formatNumber(player.highScore), 'score numeric'),
           tableCell(formatNumber(player.highestLevel), 'numeric'),
           tableCell(formatNumber(player.totalRuns), 'numeric'),
-          tableCell(formatNumber(player.currentStreak) + ' current / ' + formatNumber(player.longestStreak) + ' best', 'numeric'),
+          tableCell(player.currentStreak === null ? '—' : formatNumber(player.currentStreak) + ' current / ' + formatNumber(player.longestStreak) + ' best', 'numeric'),
           tableCell(formatDate(player.lastPlayDate)),
           tableCell(formatDateTime(player.updatedAt)),
         );
@@ -873,7 +878,7 @@ const dashboardHtml = String.raw`<!doctype html>
           const row = document.createElement('tr');
           row.append(
             tableCell(formatDateTime(run.createdAt)),
-            playerCell(run.displayName, run.discordUserId),
+            playerCell(run.displayName, run.discordUserId, run.platform),
             tableCell(formatNumber(run.score), 'score numeric'),
             tableCell(formatNumber(run.level), 'numeric'),
             resultCell,
@@ -891,7 +896,7 @@ const dashboardHtml = String.raw`<!doctype html>
       elements.next.disabled = pagination.page >= state.totalPages;
     }
 
-    function playerCell(name, id) {
+    function playerCell(name, id, platform, sessions) {
       const cell = document.createElement('td');
       const playerName = document.createElement('span');
       const playerId = document.createElement('span');
@@ -900,7 +905,12 @@ const dashboardHtml = String.raw`<!doctype html>
       playerId.className = 'subtext';
       playerId.textContent = id;
       playerId.title = id;
-      cell.append(playerName, playerId);
+      const source = document.createElement('span');
+      source.className = 'subtext';
+      source.textContent = (platform || 'discord').toUpperCase() +
+        (platform === 'discord' ? ' / verified account' : ' / chosen name') +
+        (sessions == null ? '' : ' / ' + formatNumber(sessions) + ' visits');
+      cell.append(playerName, source, playerId);
       return cell;
     }
 
