@@ -226,31 +226,26 @@ function buildPlayerWhere(search) {
   if (!search) {
     return '';
   }
-  const pattern = sqlLikePattern(search);
-  return `WHERE lower(display_name) LIKE ${pattern} ESCAPE '\\'
-    OR discord_user_id LIKE ${pattern} ESCAPE '\\'
-    OR platform LIKE ${pattern} ESCAPE '\\'`;
+  const term = sqlSearchLiteral(search);
+  return `WHERE instr(lower(display_name), ${term}) > 0
+    OR instr(discord_user_id, ${term}) > 0
+    OR instr(platform, ${term}) > 0`;
 }
 
 function buildRunWhere(search) {
   if (!search) {
     return '';
   }
-  const pattern = sqlLikePattern(search);
-  return `WHERE lower(COALESCE(p.display_name, '')) LIKE ${pattern} ESCAPE '\\'
-    OR r.discord_user_id LIKE ${pattern} ESCAPE '\\'
-    OR lower(r.submission_id) LIKE ${pattern} ESCAPE '\\'
-    OR p.platform LIKE ${pattern} ESCAPE '\\'`;
+  const term = sqlSearchLiteral(search);
+  return `WHERE instr(lower(COALESCE(p.display_name, '')), ${term}) > 0
+    OR instr(r.discord_user_id, ${term}) > 0
+    OR instr(lower(r.submission_id), ${term}) > 0
+    OR instr(p.platform, ${term}) > 0`;
 }
 
-function sqlLikePattern(search) {
-  const escaped = search
-    .toLowerCase()
-    .replaceAll('\\', '\\\\')
-    .replaceAll('%', '\\%')
-    .replaceAll('_', '\\_')
-    .replaceAll("'", "''");
-  return `'%${escaped}%'`;
+function sqlSearchLiteral(search) {
+  // Literal substring search supports full player hashes without D1's LIKE pattern-length limit.
+  return `'${search.toLowerCase().replaceAll("'", "''")}'`;
 }
 
 function readableError(error) {
